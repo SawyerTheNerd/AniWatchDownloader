@@ -62,23 +62,12 @@ def apply_app_appearance_settings(app: QApplication):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    app.setOrganizationName("pratikpatel8982")
-    app.setApplicationName("HiAnimeDownloader")
+    app.setOrganizationName("AniWatch")
+    app.setApplicationName("AniWatch Downloader")
 
     apply_app_appearance_settings(app) # Apply before creating main window
 
     from gui.main_window import AnimeDownloaderWindow
     main_window = AnimeDownloaderWindow()
     main_window.show()
-    sys.exit(app.exec())
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-
-    app.setOrganizationName("pratikpatel8982") # Replace with your name/org
-    app.setApplicationName("HiAnimeDownloader")
-
-    main_window = AnimeDownloaderWindow()
-    main_window.show()
-
     sys.exit(app.exec())

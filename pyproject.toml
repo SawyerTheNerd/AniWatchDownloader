@@ -1,7 +1,7 @@
 [project]
-name = "hianimedownloader"
+name = "aniwatch-downloader"
 version = "1.0.0"
-description = "GUI application to search and download anime from hianime"
+description = "GUI application to search and download anime from AniWatch"
 authors = [
     {name = "Pratik Patel",email = "pratikpatel8982@gmail.com"}
 ]

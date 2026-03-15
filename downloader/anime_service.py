@@ -10,7 +10,7 @@ from yt_dlp import YoutubeDL
 from yt_dlp.utils import clean_html, get_element_by_class, get_elements_html_by_class
 from yt_dlp_plugins.extractor import hianime
 
-DEFAULT_BASE_URL = "https://hianime.to" # Update if needed, or make configurable
+DEFAULT_BASE_URL = "https://aniwatchtv.to" # Update if needed, or make configurable
 VERSION_REGEX = re.compile(r'^__version__\s*=\s*["\'](?P<version>[^"\']+)["\']', re.M)
 
 class Logger:
@@ -172,13 +172,17 @@ class AnimeService(QObject):
 
         for element_html in anime_elements:
             title = clean_html(get_element_by_class('film-name', element_html))
-            url_match = re.search(r'href="(/watch/[^"]+)"', element_html)
+            # Updated URL pattern for aniwatchtv.to - handles both /watch/ and /anime-id formats
+            url_match = re.search(r'href="(/[^"]+)"', element_html)
 
             if not (title and url_match):
                 self._service_logger.warning(f"Skipped item: missing title or URL. Title found: '{title}'")
                 continue
 
             anime_path = url_match.group(1)
+            # Handle URL format - convert /anime-id to /watch/anime-id if needed
+            if not anime_path.startswith('/watch/'):
+                anime_path = f"/watch{anime_path}"
             anime_full_url = f"{search_base_url}{anime_path}" # Use search_base_url
 
             sub, dub = 0, 0

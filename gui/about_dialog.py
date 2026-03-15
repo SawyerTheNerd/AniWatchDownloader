@@ -6,7 +6,7 @@ from .ui_about_dialog import Ui_AboutDialog
 import version # Import the version module from the project root
 
 # Define the repository URL
-REPO_URL = "https://github.com/pratikpatel8982/HiAnimeDownloader"
+REPO_URL = "https://github.com/SawyerTheNerd/AniWatchDownloader"
 
 class AboutDialog(QDialog):
     def __init__(self, parent=None):
@@ -21,9 +21,9 @@ class AboutDialog(QDialog):
         """Populates the labels in the About dialog with dynamic information."""
         _translate = QCoreApplication.translate
 
-        self.ui.app_name_label.setText(_translate("AboutDialog", "HiAnime Downloader"))
+        self.ui.app_name_label.setText(_translate("AboutDialog", "AniWatch Downloader"))
         self.ui.version_label.setText(_translate("AboutDialog", f"Version: v{version.__version__}"))
-        self.ui.author_label.setText(_translate("AboutDialog", "Developed by: Pratik Patel"))
+        self.ui.author_label.setText(_translate("AboutDialog", "Based on HiAnime Downloader by Pratik Patel"))
         
         # Set the repository link, making it clickable
         self.ui.repo_link_label.setText(

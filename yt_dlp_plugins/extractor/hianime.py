@@ -12,7 +12,7 @@ from yt_dlp.utils import ExtractorError, clean_html, get_element_by_class
 from megacloud import Megacloud
 
 class HiAnimeIE(InfoExtractor):
-    _VALID_URL = r'https?://hianime(?:z)?\.(?:to|is|nz|bz|pe|cx|gs|do)/(?:watch/)?(?P<slug>[^/?]+)(?:-\d+)?-(?P<playlist_id>\d+)(?:\?.*)?$'
+    _VALID_URL = r'https?://(?:hianime(?:z)?\.(?:to|is|nz|bz|pe|cx|gs|do)|aniwatchtv\.to)/(?:watch/)?(?P<slug>[^/?]+)(?:-\d+)?-(?P<playlist_id>\d+)(?:\?.*)?$'
 
     _TESTS = [
         {
@@ -173,7 +173,7 @@ class HiAnimeIE(InfoExtractor):
             server_items_filtered = [s for s in server_items_from_func if f'data-type="{server_type}"' in s.group(0)]
             
             # 3. Try multiple mirrors
-            mirror_names = ["HD-1", "HD-2", "HD-3"]
+            mirror_names = ["MegaCloud", "VidSrc", "HD-1", "HD-2", "HD-3"]
             for mirror in mirror_names:
                 target_link_text = mirror
                 server_id = next(

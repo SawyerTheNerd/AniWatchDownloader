@@ -8,7 +8,7 @@ from PyQt6.QtCore import Qt, QCoreApplication
 class Ui_AboutDialog(object):
     def setupUi(self, AboutDialogInstance):
         AboutDialogInstance.setObjectName("AboutDialog")
-        AboutDialogInstance.setWindowTitle(QCoreApplication.translate("AboutDialog", "About HiAnime Downloader"))
+        AboutDialogInstance.setWindowTitle(QCoreApplication.translate("AboutDialog", "About AniWatch Downloader"))
         AboutDialogInstance.setMinimumSize(350, 200)
         AboutDialogInstance.setModal(True) # Make it a modal dialog
 
@@ -77,7 +77,7 @@ class Ui_AboutDialog(object):
         _translate = QCoreApplication.translate
         # These will be dynamically set by the AboutDialog class,
         # but provide initial placeholder for designer perspective.
-        self.app_name_label.setText(_translate("AboutDialog", "HiAnime Downloader"))
+        self.app_name_label.setText(_translate("AboutDialog", "AniWatch Downloader"))
         self.version_label.setText(_translate("AboutDialog", "Version: vX.Y.Z"))
-        self.author_label.setText(_translate("AboutDialog", "Developed by: Pratik Patel"))
-        self.repo_link_label.setText(_translate("AboutDialog", "Project Repository: <a href=\"https://github.com/pratikpatel8982/HiAnimeDownloadeR\">GitHub</a>"))
+        self.author_label.setText(_translate("AboutDialog", "Based on HiAnime Downloader by Pratik Patel"))
+        self.repo_link_label.setText(_translate("AboutDialog", "Project Repository: <a href=\"https://github.com/SawyerTheNerd/AniWatchDownloader\">GitHub</a>"))

@@ -16,7 +16,7 @@ from PyQt6.QtNetwork import (
     QNetworkAccessManager, QNetworkRequest, QNetworkReply
 )
 
-from downloader.anime_service import AnimeService 
+from downloader.anime_service import AnimeService, DEFAULT_BASE_URL 
 
 # --- UI Definition and Helpers Import ---
 from .ui_main_window import UiMainWindow
@@ -271,7 +271,7 @@ class AnimeDownloaderWindow(QWidget):
 
         # Download Path
         default_path = QStandardPaths.writableLocation(QStandardPaths.StandardLocation.DownloadLocation)
-        app_folder_name = "HiAnime_Downloader_Downloads"
+        app_folder_name = "AniWatch_Downloader_Downloads"
         if default_path:
             default_path = os.path.join(default_path, app_folder_name)
         else:
@@ -834,7 +834,7 @@ class AnimeDownloaderWindow(QWidget):
         menu.addAction(copy_title_action)
 
         if anime_data_for_menu.get('url'):
-            view_online_action = QAction("View on HiAnime", self)
+            view_online_action = QAction("View on AniWatch", self)
             view_online_action.triggered.connect(lambda: QDesktopServices.openUrl(QUrl(anime_data_for_menu.get('url'))))
             menu.addAction(view_online_action)
         

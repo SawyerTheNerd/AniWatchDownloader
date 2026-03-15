@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="screenshots/screenshot.png" alt="Screenshot of HiAnimeDownloader GUI">
+  <img src="screenshots/screenshot.png" alt="Screenshot of AniWatchDownloader GUI">
 </p>
 
-## HiAnimeDownloader
+## AniWatchDownloader
 
-A GUI application to search and download anime from HiAnime.
+A GUI application to search and download anime from AniWatch.
 
-This project is a desktop application designed to make it easy to find and download your favorite anime from the HiAnime website. It features a simple graphical user interface to search for titles, browse episodes, and manage downloads.
+This project is a desktop application designed to make it easy to find and download your favorite anime from the AniWatch website. It features a simple graphical user interface to search for titles, browse episodes, and manage downloads.
 
 ### Key Features
 * **Search Functionality:** Find anime by title directly from the application.
@@ -25,8 +25,8 @@ You can set up and run this project using either **Poetry** (recommended) or a s
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/pratikpatel8982/HiAnimeDownloader.git](https://github.com/pratikpatel8982/HiAnimeDownloader.git)
-    cd HiAnimeDownloader
+    git clone https://github.com/SawyerTheNerd/AniWatchDownloader.git
+    cd AniWatchDownloader
     ```
 
 2.  **Install dependencies:**
@@ -44,8 +44,8 @@ You can set up and run this project using either **Poetry** (recommended) or a s
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/pratikpatel8982/HiAnimeDownloader.git](https://github.com/pratikpatel8982/HiAnimeDownloader.git)
-    cd HiAnimeDownloader
+    git clone https://github.com/SawyerTheNerd/AniWatchDownloader.git
+    cd AniWatchDownloader
     ```
 
 2.  **Create a virtual environment:**
@@ -81,7 +81,7 @@ You can package this application into a single executable file for easy distribu
     ```
 2.  **Build the executable:**
     ```bash
-    poetry run pyinstaller --onefile --name HiAnimeDownloader main.pyw
+    poetry run pyinstaller --onefile --name AniWatchDownloader main.pyw
     ```
 
 #### Using `requirements.txt`
@@ -93,7 +93,7 @@ You can package this application into a single executable file for easy distribu
     ```
 3.  **Build the executable:**
     ```bash
-    pyinstaller --onefile --windowed --name HiAnimeDownloader main.py
+    pyinstaller --onefile --windowed --name AniWatchDownloader main.py
     ```
 
 The final executable will be located in the `dist` folder.

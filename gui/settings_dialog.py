@@ -18,6 +18,7 @@ KEY_DEFAULT_LANGUAGE = "general/defaultLanguage"
 KEY_DEFAULT_QUALITY = "general/defaultQuality"
 KEY_FFMPEG_PATH = "downloads/ffmpegPath"
 KEY_DOWNLOAD_RETRIES = "downloads/downloadRetries"
+KEY_BASE_URL = "general/baseUrl"
 # Add new keys for interface settings
 KEY_APP_STYLE = "interface/appStyle"
 KEY_CUSTOM_QSS_THEME = "interface/customQssTheme"
@@ -77,8 +78,8 @@ class SettingsDialog(QDialog):
     def load_settings(self):
         # General
         default_dl_path_system = QStandardPaths.writableLocation(QStandardPaths.StandardLocation.DownloadLocation)
-        app_dl_folder = os.path.join(default_dl_path_system, "HiAnime_Downloader_Downloads") if default_dl_path_system else \
-                        os.path.join(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.DocumentsLocation) or os.path.expanduser("~"), "HiAnime_Downloader_Downloads")
+        app_dl_folder = os.path.join(default_dl_path_system, "AniWatch_Downloader_Downloads") if default_dl_path_system else \
+                        os.path.join(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.DocumentsLocation) or os.path.expanduser("~"), "AniWatch_Downloader_Downloads")
 
         self.ui.default_download_path_edit.setText(self.settings.value(KEY_DEFAULT_DOWNLOAD_PATH, app_dl_folder, type=str))
         self.ui.default_language_combo.setCurrentText(self.settings.value(KEY_DEFAULT_LANGUAGE, "SUB", type=str))
@@ -119,6 +120,7 @@ class SettingsDialog(QDialog):
         self.settings.setValue(KEY_DEFAULT_DOWNLOAD_PATH, self.ui.default_download_path_edit.text())
         self.settings.setValue(KEY_DEFAULT_LANGUAGE, self.ui.default_language_combo.currentText())
         self.settings.setValue(KEY_DEFAULT_QUALITY, self.ui.default_quality_combo.currentText())
+        self.settings.setValue(KEY_BASE_URL, self.ui.base_url_edit.text() if hasattr(self.ui, 'base_url_edit') else "https://aniwatchtv.to")
 
         # Downloads
         self.settings.setValue(KEY_FFMPEG_PATH, self.ui.ffmpeg_path_edit.text())
@@ -194,7 +196,7 @@ class SettingsDialog(QDialog):
         
         if reply == QMessageBox.StandardButton.Yes:
             keys_to_reset = [
-                KEY_DEFAULT_DOWNLOAD_PATH, KEY_DEFAULT_LANGUAGE, KEY_DEFAULT_QUALITY,
+                KEY_DEFAULT_DOWNLOAD_PATH, KEY_DEFAULT_LANGUAGE, KEY_DEFAULT_QUALITY, KEY_BASE_URL,
                 KEY_FFMPEG_PATH, KEY_DOWNLOAD_RETRIES,
                 KEY_APP_STYLE, KEY_CUSTOM_QSS_THEME,
                 "last_language", "last_quality", "last_download_path", "log_visible",

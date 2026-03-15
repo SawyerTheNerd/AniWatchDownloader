@@ -146,10 +146,10 @@ class UiMainWindow(object):
 
     def retranslateUi(self, MainWindow_instance):
         _translate = QCoreApplication.translate
-        MainWindow_instance.setWindowTitle(_translate("AnimeDownloaderWindow", "HiAnime Downloader"))
-        
+        MainWindow_instance.setWindowTitle(_translate("AnimeDownloaderWindow", "AniWatch Downloader"))
+
         # Search Area
-        MainWindow_instance.search_input.setPlaceholderText(_translate("AnimeDownloaderWindow", "Enter anime name or select from download history..."))
+        MainWindow_instance.search_input.setPlaceholderText(_translate("AnimeDownloaderWindow", "https://aniwatchtv.to"))
         MainWindow_instance.search_btn.setText(_translate("AnimeDownloaderWindow", "Search"))
 
         # Filter Input
