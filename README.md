@@ -71,32 +71,27 @@ You can set up and run this project using either **Poetry** (recommended) or a s
 
 ### Building an Executable
 
-You can package this application into a single executable file for easy distribution using **PyInstaller**. The process is slightly different depending on your installation method.
+You can package this application into a single executable file for easy distribution using **PyInstaller**.
 
-#### Using Poetry
+#### Build Command
 
-1.  **Install PyInstaller:**
-    ```bash
-    poetry run pip install pyinstaller
-    ```
-2.  **Build the executable:**
-    ```bash
-    poetry run pyinstaller --onefile --name AniWatchDownloader main.pyw
-    ```
+```bash
+pyinstaller --onefile --windowed --name "AniWatchDownloader" --add-data "yt_dlp_plugins;yt_dlp_plugins" main.pyw
+```
 
-#### Using `requirements.txt`
+**Important:** The `--add-data "yt_dlp_plugins;yt_dlp_plugins"` flag is required to include the custom yt-dlp extractor plugin.
 
-1.  **Activate your virtual environment.**
-2.  **Install PyInstaller:**
-    ```bash
-    pip install pyinstaller
-    ```
-3.  **Build the executable:**
-    ```bash
-    pyinstaller --onefile --windowed --name AniWatchDownloader main.py
-    ```
+#### Output
 
-The final executable will be located in the `dist` folder.
+- **Location:** `dist/AniWatchDownloader.exe`
+- **Size:** ~58 MB
+- **Type:** Standalone executable (no Python installation required)
+
+#### Notes
+
+- Windows Defender may show a warning for unsigned executables (this is normal for self-built apps)
+- The executable includes all dependencies: PyQt6, yt-dlp, requests, etc.
+- FFmpeg is NOT included - install separately for subtitle embedding support
 
 ***
 
